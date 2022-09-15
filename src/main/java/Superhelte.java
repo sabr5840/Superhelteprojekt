@@ -39,4 +39,14 @@ public class Superhelte {
     public double getStyrke() {
         return styrke;
     }
+
+    public int setAntal() {
+        return setAntal();
+    }
+
+    @Override
+    public String toString (){
+        return navn + " " + rigtignavn + " " + superkraft + " " + menneske + " " + oprettelseÅr + " " + styrke;
+    }
+
 }
