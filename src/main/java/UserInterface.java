@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //Alt main data er overflyttet til UserInterface
@@ -15,7 +16,7 @@ public class UserInterface {
             System.out.println("------------------------------");
             System.out.println("Velkommen til Superhelteverden");
             System.out.println("------------------------------");
-            System.out.println("1) Opret ny superhelt \n2) Søg efter superhelt \n3) Vis alle superhelte \n4) Afslut program ");
+            System.out.println("1) Opret ny superhelt \n2) Søg efter superhelt \n3) Vis alle superhelte \n4) Rediger superhelt \n5) Afslut program ");
 
             int valg = scanner.nextInt();
             scanner.nextLine();
@@ -26,9 +27,11 @@ public class UserInterface {
             } else if (valg == 3) {
                 listeMenu();
             } else if (valg == 4) {
+                redigerSuperhelt();
+            } else if (valg == 5) {
                 System.exit(0);
             }
-        } while (valg != 4);
+        } while (valg != 5);
     }
 
     private void opretSuperhelt() {
@@ -53,27 +56,36 @@ public class UserInterface {
         database.skabSuperhelt(navn, rigtignavn, superkraft, menneske, oprettelseÅr, styrke);
     }
 
-    public void listeMenu (){
+    public void listeMenu() {
         System.out.println("Liste over superhelte");
-        for (Superhelte superhelte : database.getSuperhelte()){
+        for (Superhelte superhelte : database.getSuperhelte()) {
             System.out.println("Heltenavn: " + superhelte.getNavn() + "\n" + "Rigtigt navn: " + superhelte.getRigtignavn() + "\n" +
                     "Superkraft: " + superhelte.getSuperkraft() + "\n" + "Menneske eller ej: " + superhelte.getmenneske() + "\n" +
                     "Årtal skabt: " + superhelte.getOprettelseÅr() + "\n" + "Styrke: " + superhelte.getStyrke() + "\n");
         }
     }
 
-    public void søgHelt(){
+    public void søgHelt() {
         System.out.println("Søg efter superhelt");
         String searchTerm = scanner.nextLine();
-        Superhelte fundet = database.searchFor(searchTerm);
-        if (fundet == null){
+        ArrayList<Superhelte> fundet = database.searchFor(searchTerm);
+        if (fundet.isEmpty()) {
             System.out.println("intet resultat fundet, prøv igen");
-        }else{
-            System.out.println("Heltenavn: " + fundet.getNavn() + "\n" + "Rigtigt navn: " + fundet.getRigtignavn() + "\n" +
-                    "Superkraft: " + fundet.getSuperkraft() + "\n" + "Menneske eller ej: " + fundet.getmenneske() + "\n" +
-                    "Årtal skabt: " + fundet.getOprettelseÅr() + "\n" + "Styrke: " + fundet.getStyrke());
+        } else {
+            for (Superhelte superhelte : fundet) {
+                System.out.println("Heltenavn: " + superhelte.getNavn() + "\n" + "Rigtigt navn: " + superhelte.getRigtignavn() + "\n" +
+                        "Superkraft: " + superhelte.getSuperkraft() + "\n" + "Menneske eller ej: " + superhelte.getmenneske() + "\n" +
+                        "Årtal skabt: " + superhelte.getOprettelseÅr() + "\n" + "Styrke: " + superhelte.getStyrke());
+            }
         }
+
     }
 
+    public void redigerSuperhelt () {
+        System.out.println("Søg efter ønsket superhelt, som skal redigeres:");
+
+
+    }
 
 }
+
