@@ -44,9 +44,34 @@ public class Superhelte {
         return setAntal();
     }
 
+    public  void setNavn(String navn){
+    this.navn=navn;
+    }
+
+    public void setRigtignavn(String rigtignavn){
+        this.rigtignavn=rigtignavn;
+    }
+
+    public void setSuperkraft(String superkraft){
+        this.superkraft=superkraft;
+    }
+
+    public void setMenneske(boolean menneske){
+        this.menneske=menneske;
+    }
+
+    public void setOprettelseÅr(int oprettelseÅr){
+        this.oprettelseÅr=oprettelseÅr;
+    }
+
+    public void setStyrke(double styrke){
+        this.styrke=styrke;
+    }
+
     @Override
     public String toString (){
         return navn + " " + rigtignavn + " " + superkraft + " " + menneske + " " + oprettelseÅr + " " + styrke;
     }
 
 }
+

@@ -27,6 +27,7 @@ public class Database {
 
     }
 
+
     public void createTestData(){
         skabSuperhelt("Scarlet Witch", "Wanda Maximoff", "telekinese, energimanipulation og en eller anden form for neuroelektrisk grænseflade", false, 1989, 100);
         skabSuperhelt("Captain Marvel", "Carol Danvers", "forbedret styrke, udholdenhed, smidighed og holdbarhed, samt kan flyve og næsten total immunitet over for toksiner og giftstoffer", false, 1960, 100);

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 //Alt main data er overflyttet til UserInterface
@@ -82,7 +83,58 @@ public class UserInterface {
     }
 
     public void redigerSuperhelt () {
-        System.out.println("Søg efter ønsket superhelt, som skal redigeres:");
+        System.out.println("Indtast ønsket superhelt, som skal redigeres:");
+        String name = scanner.nextLine();
+        List<Superhelte> superheltes = database.searchFor(name);
+        if (superheltes.size()==0){
+            System.out.println("Superhelt findes ikke, prøv igen");
+        }else {
+            Superhelte superhelte = superheltes.get(0);
+            System.out.println("ret Superheltens navn ("+superhelte.getNavn()+"):");
+            String newname = scanner.nextLine();
+            if (!newname.isEmpty()){
+                superhelte.setNavn(newname);
+            }
+
+            System.out.println("Ret superheltens rigtige navn ("+superhelte.getRigtignavn()+"):");
+            String newrealname = scanner.nextLine();
+            if (!newrealname.isEmpty()){
+                superhelte.setRigtignavn(newrealname);
+            }
+
+            System.out.println("Ret superheltens superkraft("+superhelte.getSuperkraft()+"):");
+            String newsuperpower = scanner.nextLine();
+            if (!newsuperpower.isEmpty()){
+                superhelte.setSuperkraft(newsuperpower);
+            }
+
+           System.out.println("Ret superheltens art ("+superhelte.getmenneske()+"):");
+            boolean newhuman = scanner.nextBoolean();
+            if (!newhuman.isEmpty()){
+                int ishuman = Integer.parseInt(newhuman);
+                superhelte.setMenneske(ishuman);
+            }
+
+            System.out.println("Ret superheltens oprettelseår ("+superhelte.getOprettelseÅr()+"):");
+            try {
+                String newcreationyear = scanner.nextLine();
+                if (!newcreationyear.isEmpty()) {
+                    int year = Integer.parseInt(newcreationyear);
+                    superhelte.setOprettelseÅr(year);
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Ikke korrekt tal");
+            }
+
+
+
+
+            System.out.println("Ret superheltens styrke ("+superhelte.getStyrke()+"):");
+            double power = scanner.nextDouble();
+            if (!power.isEmpty()){
+                superhelte.setStyrke(newcreationyear);
+            }*/
+        }
 
 
     }
